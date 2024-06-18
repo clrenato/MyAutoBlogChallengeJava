@@ -26,7 +26,7 @@ public class UserController {
 	
 	@PostMapping("/users")
 	public User newUser(@Valid @RequestBody User user) {
-		return repository.save(user);
+		return repository.save(User.getPasswordEncryptedUser(user));
 	}
 
 	@GetMapping("/users/logged")
